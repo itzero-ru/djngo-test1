@@ -13,6 +13,9 @@ def news_home(request):
     """Список статей"""
     news = Articles.objects.order_by('-date')
 
+    for item in news:
+        item.all_comments = len(item.comments_articles.all())
+        
     return render(request, 'news/news_home.html', {'news':news})
 
 class NewsDetailView(FormMixin, DetailView):
@@ -26,6 +29,7 @@ class NewsDetailView(FormMixin, DetailView):
     def post(self, request, *args, **kwargs):
         """Обработка отправленной формы, переданной методом POST"""
         form = self.get_form()
+
         if form.is_valid:
             return self.form_valid(form)
         else:
@@ -54,6 +58,7 @@ class NewsDeleteView(DeleteView):
 def create(request):
     """Создание статьи через форму сайта"""
     error = ''
+
     if request.method == 'POST':
         form = ArticlesForm(request.POST)
         if form.is_valid():
