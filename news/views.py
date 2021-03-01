@@ -7,16 +7,24 @@ from django.views.generic.edit import FormMixin
 from django.urls import reverse
 from django.shortcuts import render
 from django.db.models import Count
+from django.core.paginator import Paginator
 # Create your views here.
 
 def news_home(request):
-    """Список статей"""
+    """Список всех постов на странице с новостями
+    
+    Включена пагинация по страницам
+    """
     news = Articles.objects.order_by('-date')
+    paginator = Paginator(news,2) # Кол-во постов на странице
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
-    for item in news:
+    for item in page_obj:
+        """Подсчет кол-ва комментариев поста"""
         item.all_comments = len(item.comments_articles.all())
-        
-    return render(request, 'news/news_home.html', {'news':news})
+
+    return render(request, 'news/news_home.html', {'page_obj':page_obj})
 
 class NewsDetailView(FormMixin, DetailView):
     """Обработка страницы статьи"""
