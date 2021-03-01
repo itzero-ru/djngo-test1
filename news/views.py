@@ -16,7 +16,7 @@ def news_home(request):
     Включена пагинация по страницам
     """
     news = Articles.objects.order_by('-date')
-    paginator = Paginator(news,2) # Кол-во постов на странице
+    paginator = Paginator(news,10) # Кол-во постов на странице
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 

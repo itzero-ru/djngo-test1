@@ -63,7 +63,7 @@ main .features p {max-width: 500px; margin: 20px auto;}
 .alert-warning {
     /* Превью поста */
     clear: both;
-    margin: 20px 34%;
+    margin: 20px 20%;
     text-align: left;
 }
 
