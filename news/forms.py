@@ -5,7 +5,7 @@ class ArticlesForm(ModelForm):
     """ArticlesForm: Articles - это название модели в models.py"""
     class Meta:
         model = Articles
-        fields = ['title', 'anons', 'full_text']
+        fields = ['title', 'anons', 'full_text', 'tag']
 
         widgets = {
             "title": TextInput(attrs={
@@ -19,6 +19,10 @@ class ArticlesForm(ModelForm):
             "full_text": Textarea(attrs={
                 'class': 'form-control',
                 'placeholder': 'Текст статьи'
+            }),
+             "tag": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Теги'
             }),
         }
 

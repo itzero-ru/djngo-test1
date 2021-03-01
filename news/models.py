@@ -8,6 +8,7 @@ class Articles(models.Model):
     anons = models.CharField('Анонс', max_length=250, default='')
     full_text = models.TextField('Статья')
     date = models.DateTimeField(auto_now=True)
+    tag = models.CharField('Тег', max_length=20, default='',blank=True)
 
     def __str__(self):
         """Информация, которая возвращается при выводе самого объекта"""
