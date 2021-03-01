@@ -2,30 +2,28 @@ body {
     background: #2c2c2c;
 }
 
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1920px;
+}
+
 aside {
     float: left;
     background: #181818;
-    width: 20%;
     padding: 2.5%;
-    height: 100vh;
+    /* height: 100vh; */
     position: fixed;
     color: #fff;
     border-right: 5px solid #4d4d4d;
 }
 
 aside img {
-    width: 60px;
-    float: left;
+    width: 50px;
 }
 
 aside .logo {
-    font-size: 40px;
+    font-size: 35px;
     margin-left: 10px;
     font-weight: bold;
-    /*
-    position: relative;
-    top: -5px;
-    */
 }
 
 aside h3 {
@@ -54,11 +52,9 @@ ul li {
 }
 
 main .features {
-    float: right;
     color: #fff;
     margin-top: 100px;
     text-align: center;
-    width: 80%;
 }
 
 main .features h1 {font-size: 50px;}
@@ -66,15 +62,12 @@ main .features p {max-width: 500px; margin: 20px auto;}
 
 .alert-warning {
     /* Превью поста */
-    float: left;
     clear: both;
-    /* width: 600px; */
     margin: 20px 34%;
     text-align: left;
 }
 
 form {
-    /*margin-left: 32%;*/
     margin: auto;
     width: 500px;
     margin-top: 50px;
