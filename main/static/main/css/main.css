@@ -58,7 +58,7 @@ main .features {
 }
 
 main .features h1 {font-size: 50px;}
-main .features p {max-width: 500px; margin: 20px auto;}
+main .features p {max-width: 800px; margin: 20px auto;}
 
 .alert-warning {
     /* Превью поста */
